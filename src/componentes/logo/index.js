@@ -4,8 +4,14 @@ import logo from '../../imagens/logo.png'
 function Logo() {
     return(
     <div className ="logo">
-        <img src={logo} width={60} height={60} alt="logo"></img>
-        <p>O <strong>T T</strong> O</p>
+        <img 
+        src={logo} 
+        width={90} 
+        height={90} 
+        alt="logo"
+        className="img-space">
+        </img>
+        <p>O <strong className="strong-red"> T  T</strong> O</p>
     </div>
     )
 }
