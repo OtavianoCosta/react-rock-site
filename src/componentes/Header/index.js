@@ -1,0 +1,18 @@
+import './style.css'
+import Logo from '../logo'
+import OpcoesHeader from '../OpcoesHeader'
+import IconesHeader from '../IconesHeader';
+
+function Header () {
+    return (
+        <div className="App">
+        <header className="App-header">
+          <Logo/>
+          <OpcoesHeader/>
+          <IconesHeader/>       
+        </header>
+      </div>
+    )
+}
+
+export default Header
