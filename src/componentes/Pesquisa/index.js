@@ -9,6 +9,8 @@ const PesquisaConteiner = styled.section`
     padding: 85px 0;
     height: 270px;
     width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
 `
 
 const Titulo = styled.h1`
@@ -54,8 +56,8 @@ function Pesquisa () {
             />
             { camisetasPesquisadas.map( camiseta => (
                 <Resultado>
-                    <p>{camiseta.nome}</p>
-                    <img src={camiseta.src}/>
+                        <img src={camiseta.src} alt='camiseta'/>
+                        <p>{camiseta.nome}</p>
                 </Resultado>
 
             ))}
