@@ -1,7 +1,7 @@
 import Input from '../input'
 import styled from 'styled-components'
-import { useState } from 'react'
-import { camisetas } from './dadosPesquisa'
+import { useEffect, useState } from 'react'
+import { getCamisetas } from '../../Servicos/camisetas'
 
 const PesquisaConteiner = styled.section`
     color: #000;
@@ -40,8 +40,16 @@ const Resultado = styled.div`
 
 function Pesquisa () {
         const [camisetasPesquisadas, setCamisetasPesquisadas] = useState([])
+        const [camisetas, setCamisetas] = useState([])
 
-        console.log(camisetasPesquisadas)
+        useEffect(() => {
+            fetchCamisetas()
+        }, [])
+
+        async function fetchCamisetas() {
+            const livrosDaAPI = await getCamisetas()
+            setCamisetas(livrosDaAPI)
+        }
 
     return (
         <PesquisaConteiner>
