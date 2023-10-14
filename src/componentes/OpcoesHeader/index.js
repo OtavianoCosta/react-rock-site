@@ -18,7 +18,7 @@ const Opcao = styled.li`
   min-width: 120px;
 `
 
-const textoOpcoes = ['CAMISETAS', 'FAVORITOS', 'SACOLA']
+const textoOpcoes = ['FAVORITOS', 'SACOLA']
 
 function OpcoesHeader () {
     return (

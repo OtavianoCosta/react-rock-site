@@ -1,7 +1,8 @@
 import Input from '../input'
 import styled from 'styled-components'
-import { useEffect, useState } from 'react'
 import { getCamisetas } from '../../Servicos/camisetas'
+import { useEffect, useState } from 'react'
+import { postFavorito } from '../../Servicos/favoritos'
 
 const PesquisaConteiner = styled.section`
     color: #000;
@@ -47,9 +48,14 @@ function Pesquisa () {
         }, [])
 
         async function fetchCamisetas() {
-            const livrosDaAPI = await getCamisetas()
-            setCamisetas(livrosDaAPI)
+            const camisetaDaAPI = await getCamisetas()
+            setCamisetas(camisetaDaAPI)
         }
+
+        async function insertFavorito(id) {
+            await postFavorito(id)
+            alert(`Livro de id:${id} inserido!`)
+    }
 
     return (
         <PesquisaConteiner>
@@ -63,7 +69,7 @@ function Pesquisa () {
                 }}
             />
             { camisetasPesquisadas.map( camiseta => (
-                <Resultado>
+                <Resultado onClick={() => insertFavorito(camiseta.id)}>
                         <img src={camiseta.src} alt='camiseta'/>
                         <p>{camiseta.nome}</p>
                 </Resultado>
